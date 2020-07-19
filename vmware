@@ -1,0 +1,30 @@
+include ${HOME}/.config/firejail/vmware.local
+
+
+include disable-common.inc
+include disable-devel.inc
+include disable-exec.inc
+include disable-interpreters.inc
+include disable-passwdmgr.inc
+include disable-programs.inc
+include disable-xdg.inc
+
+
+#caps.drop all
+caps.keep sys_nice
+ipc-namespace
+netfilter
+nodbus
+nogroups
+notv
+shell none
+
+whitelist ${HOME}/.vmware
+whitelist ${HOME}/.cache/vmware
+
+include whitelist-common.inc
+
+private-etc private-etc alsa,asound.conf,ca-certificates,dconf,fonts,gtk-2.0,gtk-3.0,hostname,hosts,ld.so.cache,pulse,localtime,machine-id,conf.d,resolv.conf,ssl,X11,vmware,vmware-installer,vmware-vix
+
+
+#disable-mnt
