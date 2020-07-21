@@ -25,7 +25,6 @@ include disable-xdg.inc
 mkdir ${HOME}/.config/LyX
 mkdir ${DOCUMENTS}
 mkdir ${HOME}/.lyx
-
 whitelist ${HOME}/.config/LyX
 whitelist ${HOME}/.lyx
 whitelist ${DOCUMENTS}
