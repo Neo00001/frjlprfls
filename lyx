@@ -1,0 +1,55 @@
+# Firejail profile for lyx
+# Description: 
+# This file is overwritten after every install/update
+# Description: LyX is a document processor that encourages an approach to writing based on the structure of your documents (WYSIWYM) and not simply their appearance (WYSIWYG).
+# Persistent local customizations
+include lyx.local
+# Persistent global definitions
+include globals.local
+
+noblacklist ${HOME}/.config/LyX
+noblacklist ${HOME}/.lyx
+noblacklist /usr/share/lyx
+
+include allow-python2.inc
+include allow-python3.inc
+
+include disable-common.inc
+include disable-devel.inc
+include disable-exec.inc
+include disable-passwdmgr.inc
+include disable-programs.inc
+
+mkdir ${HOME}/.config/LyX
+mkdir ${HOME}/.lyx
+whitelist ${HOME}/.config/LyX
+whitelist ${HOME}/.lyx
+whitelist /usr/share/lyx
+include whitelist-common.inc
+include whitelist-usr-share-common.inc
+include whitelist-var-common.inc
+
+
+apparmor
+caps.drop all
+machine-id
+net none
+netfilter
+nodvd
+nogroups
+nonewprivs
+noroot
+notv
+nou2f
+novideo
+protocol unix,inet,inet6
+seccomp
+shell none
+tracelog
+
+private-bin lyx,lyxclient,tex2lyx
+private-dev
+private-etc dconf,fonts,gtk-3.0,latexmk.conf,login.defs,lyx,texlive
+private-tmp
+
+join-or-start lyx
