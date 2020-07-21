@@ -49,7 +49,7 @@ tracelog
 
 private-bin lyx,lyxclient,tex2lyx
 private-dev
-private-etc dconf,fonts,gtk-3.0,latexmk.conf,login.defs,lyx,texlive
+private-etc dconf,fonts,lyx,texmf
 private-tmp
 
 join-or-start lyx
