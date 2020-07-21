@@ -9,6 +9,7 @@ include globals.local
 
 noblacklist ${HOME}/.config/LyX
 noblacklist ${HOME}/.lyx
+noblacklist ${DOCUMENTS}
 noblacklist /usr/share/lyx
 
 include allow-python2.inc
@@ -19,11 +20,15 @@ include disable-devel.inc
 include disable-exec.inc
 include disable-passwdmgr.inc
 include disable-programs.inc
+include disable-xdg.inc
 
 mkdir ${HOME}/.config/LyX
+mkdir ${DOCUMENTS}
 mkdir ${HOME}/.lyx
+
 whitelist ${HOME}/.config/LyX
 whitelist ${HOME}/.lyx
+whitelist ${DOCUMENTS}
 whitelist /usr/share/lyx
 include whitelist-common.inc
 include whitelist-runuser-common.inc
