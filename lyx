@@ -55,7 +55,7 @@ tracelog
 
 private-bin lyx,lyxclient,tex2lyx
 private-dev
-private-etc dconf,fonts,lyx,texmf
+private-etc fonts,lyx,texmf
 private-tmp
 
 join-or-start lyx
