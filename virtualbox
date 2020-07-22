@@ -13,9 +13,12 @@ noblacklist /usr/lib/virtualbox
 noblacklist /usr/lib64/virtualbox
 
 include disable-common.inc
+include disable-devel.inc
 include disable-exec.inc
+include disable-interpreters.inc
 include disable-passwdmgr.inc
 include disable-programs.inc
+include disable-xdg.inc
 
 mkdir ${HOME}/.config/VirtualBox
 mkdir ${HOME}/VirtualBox VMs
@@ -39,4 +42,4 @@ tracelog
 #disable-mnt
 
 private-cache
-private-etc alsa,asound.conf,ca-certificates,dconf,fonts,hostname,hosts,ld.so.cache,pulse,localtime,machine-id,conf.d,resolv.conf,ssl
+private-etc alsa,asound.conf,ca-certificates,dconf,fonts,hostname,hosts,ld.so.cache,pulse,localtime,machine-id,conf.d,resolv.conf,ssl,X11
