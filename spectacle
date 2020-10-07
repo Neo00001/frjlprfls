@@ -7,7 +7,7 @@ include spectacle.local
 include globals.local
 
 noblacklist ${PICTURES}
-noblacklist ${HOME}/.config/spectaclerc
+#noblacklist ${HOME}/.config/spectaclerc
 
 include disable-common.inc
 include disable-devel.inc
@@ -20,6 +20,8 @@ include disable-xdg.inc
 include whitelist-common.inc
 include whitelist-var-common.inc
 #include whitelist-usr-share-common.inc
+
+whitelist ${HOME}/.config/spectaclerc
 
 caps.drop all
 ipc-namespace
