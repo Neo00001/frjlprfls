@@ -7,7 +7,7 @@ include spectacle.local
 include globals.local
 
 noblacklist ${PICTURES}
-#noblacklist ${HOME}/.config/spectaclerc
+noblacklist ${HOME}/.config/spectaclerc
 
 include disable-common.inc
 include disable-devel.inc
@@ -18,10 +18,18 @@ include disable-programs.inc
 include disable-xdg.inc
 
 include whitelist-common.inc
+include whitelist-runuser-common.inc
+include whitelist-usr-share-common.inc
 include whitelist-var-common.inc
-#include whitelist-usr-share-common.inc
 
 whitelist ${HOME}/.config/spectaclerc
+whitelist /usr/share/dbus-1/interfaces/org.kde.Spectacle.xml
+whitelist /usr/share/dbus-1/services/org.kde.Spectacle.service
+whitelist /usr/share/doc/HTML
+whitelist /usr/share/kconf_update
+whitelist /usr/share/knotifications5/spectacle.notifyrc
+whitelist /usr/share/metainfo/org.kde.spectacle.appdata.xml
+whitelist /usr/share/qlogging-categories5/spectacle.categories
 
 caps.drop all
 ipc-namespace
@@ -38,6 +46,7 @@ novideo
 protocol unix,inet,inet6
 seccomp
 shell none
+tracelog
 
 disable-mnt
 private-bin spectacle
@@ -45,3 +54,8 @@ private-cache
 private-etc alternatives,ca-certificates,crypto-policies,fonts,ld.so.conf,pki,resolv.conf,ssl
 private-dev
 private-tmp
+
+dbus-user filter
+dbus-user.own org.kde.spectacle
+
+dbus-system none
