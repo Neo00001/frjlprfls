@@ -13,7 +13,18 @@ include disable-devel.inc
 include disable-exec.inc
 include disable-interpreters.in  
 include disable-programs.inc
-      
+include disable-passwdmgr.inc
+include disable-xdg.inc
+
+mkdir ${HOME}/.local/share/TelegramDesktop
+whitelist ${HOME}/.local/share/TelegramDesktop
+whitelist ${DOWNLOADS}
+
+include whitelist-common.inc
+include whitelist-usr-share-common.inc
+include whitelist-var-common.inc
+include whitelist-runuser-common.inc
+
 caps.drop all
 netfilter   
 nodvd
@@ -28,3 +39,9 @@ disable-mnt
 private-cache        
 private-etc ca-certificates,crypto-policies,fonts,ld.so.cache,localtime,machine-id,pki,pulse,resolv.conf,ssl       
 private-tmp
+
+dbus-user filter
+dbus-user.talk org.freedesktop.Notifications
+dbus-user.talk org.kde.StatusNotifierWatcher
+
+dbus-system none
