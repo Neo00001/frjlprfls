@@ -1,5 +1,5 @@
 # Persistent local customizations
-include shotcut.local
+include avidemux.local
 # Persistent global definitions
 include globals.local
 
