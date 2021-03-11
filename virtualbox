@@ -29,6 +29,7 @@ include whitelist-var-common.inc
 include whitelist-runuser-common.inc
 include whitelist-usr-share-common.inc
 
+apparmor
 caps.keep net_raw,sys_nice
 netfilter
 nodvd
@@ -41,5 +42,6 @@ tracelog
 
 #disable-mnt
 
+private-bin basename,grep,ps,gawk,whoami,readlink,bash,env,sh,virtualbox,VirtualBox,VBox,VBox*,vbox*,vboximg-mount,VBoxTunctl
 private-cache
 private-etc alsa,asound.conf,ca-certificates,crypto-policies,dconf,fonts,hostname,hosts,ld.so.cache,pulse,pki,localtime,machine-id,conf.d,resolv.conf,ssl,X11
