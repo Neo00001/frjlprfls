@@ -14,6 +14,7 @@ include disable-exec.inc
 include disable-interpreters.in  
 include disable-programs.inc
 include disable-passwdmgr.inc
+include disable-shell.inc
 include disable-xdg.inc
 
 mkdir ${HOME}/.local/share/TelegramDesktop
@@ -21,10 +22,12 @@ whitelist ${HOME}/.local/share/TelegramDesktop
 whitelist ${DOWNLOADS}
 
 include whitelist-common.inc
+include whitelist-runuser-common.inc
 include whitelist-usr-share-common.inc
 include whitelist-var-common.inc
 include whitelist-runuser-common.inc
 
+apparmor
 caps.drop all
 netfilter   
 nodvd
@@ -33,10 +36,14 @@ noroot
 notv
 protocol unix,inet,inet6        
 seccomp
-        
+seccomp.block-secondary
+shell none
+
 disable-mnt
 
+private-bin bash,telegram-desktop,sh
 private-cache        
+private-dev
 private-etc ca-certificates,crypto-policies,fonts,ld.so.cache,localtime,machine-id,pki,pulse,resolv.conf,ssl       
 private-tmp
 
