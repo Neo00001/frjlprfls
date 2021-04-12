@@ -17,19 +17,18 @@ include disable-passwdmgr.inc
 include disable-programs.inc
 include disable-xdg.inc
 
+mkfile  ${HOME}/.config/spectaclerc
+whitelist ${HOME}/.config/spectaclerc
+whitelist ${PICTURES}mkfile  ${HOME}/.config/spectaclerc
+#whitelist /usr/share/kconf_update/spectacle_newConfig.upd
+#whitelist /usr/share/kconf_update/spectacle_shortcuts.upd
+#whitelist /usr/share/knotifications5/spectacle.notifyrc
+#whitelist /usr/share/metainfo/org.kde.spectacle.appdata.xml
+#whitelist /usr/share/qlogging-categories5/spectacle.categories
 include whitelist-common.inc
 include whitelist-runuser-common.inc
 include whitelist-usr-share-common.inc
 include whitelist-var-common.inc
-
-whitelist ${HOME}/.config/spectaclerc
-whitelist /usr/share/dbus-1/interfaces/org.kde.Spectacle.xml
-whitelist /usr/share/dbus-1/services/org.kde.Spectacle.service
-whitelist /usr/share/doc/HTML
-whitelist /usr/share/kconf_update
-whitelist /usr/share/knotifications5/spectacle.notifyrc
-whitelist /usr/share/metainfo/org.kde.spectacle.appdata.xml
-whitelist /usr/share/qlogging-categories5/spectacle.categories
 
 caps.drop all
 ipc-namespace
@@ -57,6 +56,7 @@ private-tmp
 
 dbus-user filter
 dbus-user.own org.kde.spectacle
+dbus-user.own org.kde.Spectacle
 dbus-user.talk org.freedesktop.FileManager1
 #dbus-user.talk org.kde.JobViewServer
 #dbus-user.talk org.kde.kglobalaccel
